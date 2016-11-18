@@ -6,9 +6,9 @@ import org.apache.spark.ml.clustering.KMeans
   */
 object Kmeans_iris {
   def main(args: Array[String]) {
-    val spark = SparkSession.builder().master("local").appName("RandomForest").getOrCreate()
+    val spark = SparkSession.builder().master("local").appName("Kmeans").getOrCreate()
 
-    val iris = spark.read.option("header","true").option("inferSchema","true").csv("/home/user/mllib_data/iris.csv")
+    val iris = spark.read.option("header","true").option("inferSchema","true").csv("iris.csv")
 
     val header = iris.columns.filter(_!="Species")
 

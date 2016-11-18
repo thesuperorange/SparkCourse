@@ -6,8 +6,8 @@ import org.apache.spark.sql.SparkSession
 object Kmeans_zoo {
   def main(args: Array[String]) {
 
-    val spark = SparkSession.builder().master("local").appName("RandomForest").getOrCreate()
-    val zoo = spark.read.option("inferSchema","true").csv("/home/user/mllib_data/zoo.data")
+    val spark = SparkSession.builder().master("local").appName("Kmeans").getOrCreate()
+    val zoo = spark.read.option("inferSchema","true").csv("zoo.data")
     val header = zoo.columns.filter(_!="_c0")
 
     import org.apache.spark.ml.feature.VectorAssembler
