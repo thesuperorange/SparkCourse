@@ -11,7 +11,7 @@ object DecisionTree_wdbc {
   def main(args: Array[String]) {
     val spark = SparkSession.builder().master("local").appName("DecisionTree").getOrCreate()
 
-    val wdbc= spark.read.option("inferSchema","true").csv("/home/user/mllib_data/wdbc.data")
+    val wdbc= spark.read.option("inferSchema","true").csv("wdbc.data")
 
     val header = wdbc.columns.filter(x=>x!=("_c0")&& x!=("_c1"))
 

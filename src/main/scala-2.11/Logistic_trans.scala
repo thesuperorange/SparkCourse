@@ -10,7 +10,7 @@ import org.apache.spark.sql.SparkSession
   */
 object Logistic_trans {
   def main(args: Array[String]) {
-    val spark = SparkSession.builder().master("local").appName("LinearRegression").getOrCreate()
+    val spark = SparkSession.builder().master("local").appName("LogisticRegression").getOrCreate()
     val sc = spark.sparkContext
     //correlation matrix
     val transRDD = sc.textFile("mllib_data/Transportation.csv")

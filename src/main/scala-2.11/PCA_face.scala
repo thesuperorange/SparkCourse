@@ -5,7 +5,7 @@ import org.apache.spark.sql.SparkSession
   */
 object PCA_face {
   def main(args: Array[String]) {
-    val spark = SparkSession.builder().master("local").appName("Kmeans").getOrCreate()
+    val spark = SparkSession.builder().master("local").appName("PCA").getOrCreate()
     val sc = spark.sparkContext
     val pcaRDD = sc.textFile("PCA_face.csv")
 

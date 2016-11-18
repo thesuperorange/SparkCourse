@@ -7,8 +7,8 @@ import org.apache.spark.ml.feature.PCA
 object PCA_gsp {
   def main(args: Array[String]) {
 
-    val spark = SparkSession.builder().master("local").appName("RandomForest").getOrCreate()
-    val gsp = spark.read.option("inferSchema","true").option("header","true").csv("/home/user/mllib_data/pca_gsp.csv")
+    val spark = SparkSession.builder().master("local").appName("PCA").getOrCreate()
+    val gsp = spark.read.option("inferSchema","true").option("header","true").csv("pca_gsp.csv")
 
 
     val header = gsp.columns.filter(_!="State")

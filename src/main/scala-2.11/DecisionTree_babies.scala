@@ -6,7 +6,7 @@ import org.apache.spark.sql.SparkSession
   */
 object DecisionTree_babies {
   def main(args: Array[String]) {
-    val spark = SparkSession.builder().master("local").appName("LinearRegression").getOrCreate()
+    val spark = SparkSession.builder().master("local").appName("DecisionTree").getOrCreate()
 
     val baby = spark.read.option("header","true").option("inferSchema","true").option("nullValue","NA").option("delimiter"," ").csv("babies.txt")
     val baby2 = baby.na.drop

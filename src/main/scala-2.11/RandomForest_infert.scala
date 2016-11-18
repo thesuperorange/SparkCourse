@@ -13,7 +13,7 @@ import org.apache.spark.ml.evaluation.MulticlassClassificationEvaluator
 object RandomForest_infert {
   def main(args: Array[String]) {
     val spark = SparkSession.builder().master("local").appName("RandomForest").getOrCreate()
-    var infert= spark.read.option("header","true").option("inferSchema","true").csv("/home/user/mllib_data/infert.csv")
+    val infert= spark.read.option("header","true").option("inferSchema","true").csv("infert.csv")
 
 
     val header = Array("age","parity","induced","spontaneous")

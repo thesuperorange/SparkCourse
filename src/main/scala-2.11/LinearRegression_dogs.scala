@@ -9,8 +9,8 @@ object LinearRegression_dogs {
   def main(args: Array[String]) {
     val spark = SparkSession.builder().master("local").appName("LinearRegression").getOrCreate()
     val sc = spark.sparkContext
-    val dogs = sc.textFile("/home/user/mllib_data/dogs2.txt")
-    dogs.map(_.split(" +").mkString(",")).repartition(1).saveAsTextFile("/home/user/mllib_data/dogs")
+    val dogs = sc.textFile("dogs2.txt")
+    dogs.map(_.split(" +").mkString(",")).repartition(1).saveAsTextFile("dogs")
 
 
     val dogs2 = spark.read.option("inferSchema","true").option("header","true").csv("dogs/part*")

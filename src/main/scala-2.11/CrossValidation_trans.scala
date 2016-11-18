@@ -13,7 +13,7 @@ import org.apache.spark.sql.SparkSession
 object CrossValidation_trans {
   def main(args: Array[String]) {
 
-    val spark = SparkSession.builder().master("local").appName("LinearRegression").getOrCreate()
+    val spark = SparkSession.builder().master("local").appName("CrossValidation").getOrCreate()
     val sc = spark.sparkContext
     //correlation matrix
     val transRDD = sc.textFile("Transportation.csv")
@@ -27,7 +27,7 @@ object CrossValidation_trans {
     correlMatrix.toArray.grouped(correlMatrix.numCols).toArray
 
 //-----------------
-    val trans = spark.read.option("header","true").option("inferSchema","true").csv("mllib_data/Transportation.csv")
+    val trans = spark.read.option("header","true").option("inferSchema","true").csv("Transportation.csv")
 
     val header =trans.columns.filter(_!="Trans")
 

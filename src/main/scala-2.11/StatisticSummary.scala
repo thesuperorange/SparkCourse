@@ -11,7 +11,7 @@ object StatisticSummary {
     val spark = SparkSession.builder().master("local").appName("Correlation").getOrCreate()
     val sc = spark.sparkContext
 
-    val carRDD = sc.textFile("mllib_data/car.csv")
+    val carRDD = sc.textFile("car.csv")
 
     val carNoHeader = carRDD.zipWithIndex().filter(_._2>0).map(line=>Vectors.dense(line._1.split(",").map(_.toDouble)))
 
