@@ -23,8 +23,8 @@ object LinearRegression_illness {
     import org.apache.spark.sql.types.DoubleType
 
     //user defined function
-    val toVec3    = udf[Vector, Double, Double,  Double] { (r,g,b) =>
-      Vectors.dense(r,g,b)
+    val toVec3    = udf[ org.apache.spark.mllib.linalg.Vector, Double, Double,  Double] { (r,g,b) =>
+      org.apache.spark.mllib.linalg.Vectors.dense(r,g,b)
     }
     //satisfy-> label,  age anxiety illness-> features
     val df2 = df.withColumn(
