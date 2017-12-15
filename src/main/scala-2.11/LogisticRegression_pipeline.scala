@@ -2,9 +2,9 @@ import org.apache.spark.ml.classification.LogisticRegression
 import org.apache.spark.ml.feature.StringIndexer
 import org.apache.spark.ml.feature.VectorAssembler
 import org.apache.spark.ml.Pipeline
+import org.apache.spark.ml.classification.LogisticRegressionModel
 
 var df = spark.read.option("header","true").option("inferSchema","true").csv("Log_reg_credit.csv")
-val header= df.columns.filter(line=>line!=("RiskIndex"))
 val indexer1 = new StringIndexer().setInputCol("Gender").setOutputCol("GenderIndex")
 val indexer2 = new StringIndexer().setInputCol("Major").setOutputCol("MajorIndex")
 val indexer3 = new StringIndexer().setInputCol("Risk").setOutputCol("label")
